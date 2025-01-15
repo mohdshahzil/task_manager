@@ -39,13 +39,33 @@ class TaskCard extends StatelessWidget {
             const SizedBox(height: 8),
             Row(
               children: [
-                _buildTag('Category 1', const Color(0xFF767BE3),
-                    const Color(0xFFF0F0FA)),
+                _buildTag('UI Design', const Color(0xFF767BE3), const Color(0xFFF0F0FA)),
                 const SizedBox(width: 8),
-                _buildTag(
-                    'Category 2',
-                    const Color(0xFFDE86A4), // Text color #de86a4
-                    const Color(0xFFFAF0F5)),
+                _buildTag('Project', const Color(0xFFDE86A4), const Color(0xFFFAF0F5)),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    const Icon(Icons.message_outlined, size: 18),
+                    const SizedBox(width: 4),
+                    const Text('3'),
+                    const SizedBox(width: 16), // Add spacing between icons
+                    const Icon(Icons.attach_file_outlined, size: 18),
+                    const SizedBox(width: 4),
+                    const Text('1'),
+                  ],
+                ),
+                Row(
+                  children: [
+                    _buildAvatar('assets/images/avatar1.png'),
+                    _buildAvatar('assets/images/avatar2.png'),
+                    _buildAvatar('assets/images/avatar3.png'),
+                  ],
+                ),
               ],
             ),
           ],
@@ -69,6 +89,13 @@ class TaskCard extends StatelessWidget {
           fontSize: 12,
         ),
       ),
+    );
+  }
+
+  Widget _buildAvatar(String imagePath) {
+    return CircleAvatar(
+      radius: 16,
+      backgroundImage: AssetImage(imagePath),
     );
   }
 }
