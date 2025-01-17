@@ -52,3 +52,13 @@ Follow these steps to get the app running on your local machine:
     flutter run
 
 
+    ## Screenshots
+
+    ### Home Screen
+    ![Home Screen](screenshots/home_screen.png)
+
+    ### Add New Task Screen
+    ![Add New Task Screen](screenshots/add_new_task_screen.png)
+
+    ### Task Detail Screen
+    ![Task Detail Screen](screenshots/task_detail_screen.png)
