@@ -1,32 +1,32 @@
 on:
-  pull_request:  # Trigger the workflow on pull requests
+  pull_request:
     branches:
-      - main  # Trigger the workflow on pull requests to the 'main' branch (adjust as needed)
-      - dev 
+      - main
+      - dev
   push:
     branches:
-      - main  # Trigger the workflow on pushes to the 'main' branch (adjust as needed)
+      - main
 
 name: "Build and Release Flutter App"
 
 jobs:
   build:
     name: "Build"
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-java@v1
         with:
-          java-version: '12.x'  # Use Java 11
-      - uses: subosito/flutter-action@v1  # Use the v2 version of the flutter-action
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '3.24.3'  # Specify the version of Flutter to use
-      - run: flutter pub get  # Install the required dependencies for the Flutter project
-      - run: flutter --version  # Build the release APK
+          flutter-version: '3.24.3'
+      - run: flutter pub get
+      - run: flutter --version
       - run: flutter build apk --debug --split-per-abi
-      - name: Push to Releases
-        uses: nicipollo/release-action@v1  # Use the v3 version of the upload-artifact action
+      - name: Upload APK to GitHub Releases
+        uses: softprops/action-gh-release@v1  # This is the alternative for creating a GitHub release
         with:
-          artifacts : "build/app/outputs/apk/debug/*.apk"
-          tag: v0.0.${{ github.run_number }}
-          
+          files: "build/app/outputs/apk/debug/*.apk"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
