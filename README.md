@@ -2,6 +2,17 @@
 
 A simple Task Manager app built with Flutter. This app allows users to create, manage, and view tasks with details. The tasks are fetched from a public API, and users can also create their own tasks, which will be displayed at the top of the list.
 
+## Screenshots
+
+   ### Home Screen
+   ![Home Screen](screenshots/home_screen.png)
+
+   ### Add New Task Screen
+   ![Add New Task Screen](screenshots/add_new_task_screen.png)
+
+   ### Task Detail Screen
+   ![Task Detail Screen](screenshots/task_detail_screen.png)
+
 ## Features
 
 - **View Tasks**: Fetch tasks from a public API and display them in a list.
@@ -52,13 +63,4 @@ Follow these steps to get the app running on your local machine:
     flutter run
 
 
-    ## Screenshots
-
-    ### Home Screen
-    ![Home Screen](screenshots/home_screen.png)
-
-    ### Add New Task Screen
-    ![Add New Task Screen](screenshots/add_new_task_screen.png)
-
-    ### Task Detail Screen
-    ![Task Detail Screen](screenshots/task_detail_screen.png)
+    
