@@ -27,7 +27,10 @@ jobs:
       - name: Create a Git tag
         run: git tag v0.0.${{ github.run_number }}  # Create a tag based on the run number
       - name: Push tag to GitHub
-        run: git push origin v0.0.${{ github.run_number }}  # Push the tag to GitHub
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} v0.0.${{ github.run_number }}  # Push the tag with authentication
       - name: Upload APK to GitHub Releases
         uses: softprops/action-gh-release@v1
         with:
